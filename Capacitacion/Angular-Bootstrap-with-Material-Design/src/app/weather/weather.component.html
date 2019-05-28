@@ -1,0 +1,43 @@
+<div class="container pt-5">
+  <div class="row">
+      <div class="offset-md-4 col">
+          <img src="../../assets/img/country_usa.png" class="pl-5 img_w pb-3">
+      </div>
+      
+  </div>
+  <div class="row justify-content-center pb-5">    
+    <span class="txt_t">Clima Actual y Previsiones en tu Ciudad.</span>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div id="table" class="table-editable">
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+              <tr>
+                <th class="text-center">Ciudad</th>
+                <th class="text-center">Temperatura promedio</th>
+                <th class="text-center">Velocidad del Viento</th>
+                <th class="text-center">Direccion del Viento</th>
+              </tr>
+              <tr *ngFor="let weather of weatherList; let id = index">
+                <td>
+                  {{weather.city}}<img src={{weather.icon}} class="pl-2 icon_weather">
+                </td>
+                <td>
+                  {{weather.temp}}<span>°C</span>
+                </td>
+                <td>
+                  {{weather.speed}}<span> KM/H</span>
+                </td>
+                <td>
+                  {{weather.address}}<span> Deg</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
