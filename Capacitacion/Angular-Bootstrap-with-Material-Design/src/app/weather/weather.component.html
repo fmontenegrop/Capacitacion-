@@ -7,8 +7,8 @@
   </div>
   <div class="row justify-content-center pb-5">    
     <span class="txt_t">Clima Actual y Previsiones en tu Ciudad.</span>
-  </div>
-  <div class="row">
+  </div>  
+  <div class="row">     
     <div class="col">
       <div class="card">
         <div class="card-body">
@@ -24,7 +24,7 @@
                 <td>
                   {{weather.city}}<img src={{weather.icon}} class="pl-2 icon_weather">
                 </td>
-                <td>
+                <td (click)="basicModal.show(); pronostico('Temperatura'); city(weather.city)" mdbWavesEffect:Launch demo modal>
                   {{weather.temp}}<span>°C</span>
                 </td>
                 <td>
@@ -39,5 +39,32 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>   
 </div>
+<!--Modal weather-->
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <span class="title_pronostico">Pronostico de las Proximas Horas</span>        
+      </div>
+      <div class="modal-body">
+        <div style="display: block">
+          <canvas mdbChart          
+              [chartType]="chartType"
+              [datasets]="chartDatasets"
+              [labels]="chartLabels"
+              [colors]="chartColors"
+              [options]="chartOptions"
+              [legend]="true"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+              >
+          </canvas>
+        </div>
+      </div>      
+    </div>
+  </div>
