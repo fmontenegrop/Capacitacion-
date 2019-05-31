@@ -24,7 +24,7 @@
                 <td>
                   {{weather.city}}<img src={{weather.icon}} class="pl-2 icon_weather">
                 </td>
-                <td (click)="basicModal.show(); city(weather.city)" mdbWavesEffect:Launch demo modal>
+                <td (click)="basicModal.show(); city_temp(weather.city); chartDatasets" mdbWavesEffect:Launch demo modal>
                   {{weather.temp}}<span>°C</span>
                 </td>
                 <td>
@@ -49,7 +49,7 @@
         <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide(); deleteList()">
           <span aria-hidden="true">×</span>
         </button>
-        <span class="title_pronostico">Pronostico de las Proximas Horas</span>        
+        <span class="title_pronostico">Pronostico de las Proximas Horas</span>
       </div>
       <div class="modal-body">
         <div style="display: block">
