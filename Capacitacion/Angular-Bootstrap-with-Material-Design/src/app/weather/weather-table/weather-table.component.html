@@ -1,10 +1,10 @@
-<div class="row st_row text-center my-0">
+<div class="row st_row text-center my-0 py-0">
     <div class="col-md-3">
         {{weatherList.city}}
         <img [src]=weatherList.icon class="pl-2 icon_weather" alt="icono ciudad">
     </div>
     <div class="col-md-3"
-        (click)="basicModal.show(); weatherS.setDat(weatherList.city); city_temp(weatherList.city); chartDatasets"
+        (click)="basicModal.show(); city_temp(weatherList.city); chartDatasets"
         mdbWavesEffect:Launch demo modal>
         {{weatherList.temp}}<span>°C</span>
     </div>
@@ -26,7 +26,7 @@
                     (click)="basicModal.hide(); deleteList()">
                     <span aria-hidden="true">×</span>
                 </button>
-                <span class="title_pronostico">Pronostico de las Proximas Horas</span>
+                <span class="pl-5">Pronostico de las Proximas Horas</span>
             </div>
             <div class="modal-body">
                 <div style="display: block">

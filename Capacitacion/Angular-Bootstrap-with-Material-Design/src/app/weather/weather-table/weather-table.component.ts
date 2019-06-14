@@ -64,8 +64,7 @@ export class WeatherTableComponent implements OnInit {
       dt.push(h["list"][1].dt_txt);
       dt.push(h["list"][2].dt_txt);
       temporal.push({ data: [this.weatherS.com_temp(h["list"][0].main.temp), this.weatherS.com_temp(h["list"][1].main.temp), this.weatherS.com_temp(h["list"][2].main.temp)], label: "Temperatura: " + city });
-    }
-    
+    }    
     //Error 
     console.log(temporal[0].label);
     //Error
