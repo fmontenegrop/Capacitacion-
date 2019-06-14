@@ -48,9 +48,7 @@ export class WeatherComponent implements OnInit {
       p.push({ city: city, temp: this.weatherS.com_temp(temp), speed: speed, address: address, icon: icon });
     };     
   };
-  ver(){
-    console.log(this.weatherS.getDat())
-  }
+  
   public chartType: string = 'line';
   public chartDatasets: Array<any> = [
     { data: [28, 48, 40], label: 'My Second dataset' },
@@ -94,24 +92,14 @@ export class WeatherComponent implements OnInit {
       dt.push(h["list"][1].dt_txt);
       dt.push(h["list"][2].dt_txt);
       temporal.push({ data: [this.weatherS.com_temp(h["list"][0].main.temp), this.weatherS.com_temp(h["list"][1].main.temp), this.weatherS.com_temp(h["list"][2].main.temp)], label: "Temperatura: " + city });
-    }
+    };
     
     //Error 
     console.log(temporal[0].label);
     //Error
     this.chartDatasets = this.lista;
   }
-  deleteList() {
-    console.log(this.chartDatasets.length);
-    while (this.chartDatasets[1] != null) {
-      this.chartDatasets.pop();
-    }
-    this.lista = this.chartDatasets;
-    if (this.lista[0] != null) {
-      this.lista;
-    }
-    console.log(this.lista.length + " " + this.chartDatasets.length);
-  }
+ 
   
   
 }

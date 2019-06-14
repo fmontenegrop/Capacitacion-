@@ -1,7 +1,7 @@
-<div class="row txt_row text-center">
+<div class="row st_row text-center my-0">
     <div class="col-md-3">
         {{weatherList.city}}
-        <!--<img [src]=weather.icon class="pl-2 icon_weather" alt="icono ciudad">-->
+        <img [src]=weatherList.icon class="pl-2 icon_weather" alt="icono ciudad">
     </div>
     <div class="col-md-3"
         (click)="basicModal.show(); weatherS.setDat(weatherList.city); city_temp(weatherList.city); chartDatasets"
