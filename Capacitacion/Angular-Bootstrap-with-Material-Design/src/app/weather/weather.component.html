@@ -20,20 +20,11 @@
                 <th class="text-center">Velocidad del Viento</th>
                 <th class="text-center">Direccion del Viento</th>
               </tr>
-              <tr *ngFor="let weather of weatherList; let id = index">
-                <td>
-                  {{weather.city}}<img src={{weather.icon}} class="pl-2 icon_weather">
-                </td>
-                <td (click)="basicModal.show(); city_temp(weather.city); chartDatasets" mdbWavesEffect:Launch demo modal>
-                  {{weather.temp}}<span>°C</span>
-                </td>
-                <td>
-                  {{weather.speed}}<span> KM/H</span>
-                </td>
-                <td>
-                  {{weather.address}}<span> Deg</span>
-                </td>
-              </tr>
+              <!---->
+              <tr *ngFor="let weather of weatherList">
+                <app-weather-table></app-weather-table>
+              </tr>  
+             
             </table>
           </div>
         </div>
@@ -52,19 +43,7 @@
         <span class="title_pronostico">Pronostico de las Proximas Horas</span>
       </div>
       <div class="modal-body">
-        <div style="display: block">
-          <canvas mdbChart          
-              [chartType]="chartType"
-              [datasets]="chartDatasets"
-              [labels]="chartLabels"
-              [colors]="chartColors"
-              [options]="chartOptions"
-              [legend]="true"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"
-              >
-          </canvas>
-        </div>
+      <app-modal></app-modal>
       </div>      
     </div>
   </div>

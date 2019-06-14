@@ -1,25 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
-import {WeatherTableComponent} from './weather-table/weather-table.component';
-import {ModalComponent} from './modal/modal.component'
-import {WeatherServise} from '../service/weather.service';
-import { modalConfigDefaults } from 'angular-bootstrap-md/lib/modals/modal.options';
+import {WeatherServise} from '../../service/weather.service'
 
 @Component({
-  selector: 'app-weather',
-  templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.scss']
+  selector: 'app-weather-table',
+  templateUrl: './weather-table.component.html',
+  styleUrls: ['./weather-table.component.scss']
 })
-
-
-
-export class WeatherComponent implements OnInit {
+export class WeatherTableComponent implements OnInit {
 
   weatherList: Array<any> = [
     
   ];
 
-  
   constructor(private weatherS:WeatherServise) {
    
   }
@@ -34,11 +26,7 @@ export class WeatherComponent implements OnInit {
     this.dat('london');     
   };
   
-  
-  
- 
-  dat(city) {    
-    
+  dat(city) {        
     const URL1 = 'http://api.openweathermap.org/data/2.5/weather?q=';
     const URL2 = ',cl,uk&APPID=a3803f4e13b97e469e7b590e8d24465f';
     const p = this.weatherList;
@@ -53,6 +41,4 @@ export class WeatherComponent implements OnInit {
       p.push({ city: city, temp: this.weatherS.com_temp(temp), speed: speed, address: address, icon: icon });
     };     
   };
-  
 }
-

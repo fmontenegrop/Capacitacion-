@@ -1,0 +1,14 @@
+
+    <td>
+      {{weather.city}}<img [src]=weather.icon class="pl-2 icon_weather" alt="icono ciudad">
+    </td>
+    <td (click)="basicModal.show(); weatherS.setDat(weather.city); chartDatasets" mdbWavesEffect:Launch demo modal>
+      {{weather.temp}}<span>°C</span>
+    </td>
+    <td>
+      {{weather.speed}}<span> KM/H</span>
+    </td>
+    <td>
+      {{weather.address}}<span> Deg</span>
+    </td>
+  
