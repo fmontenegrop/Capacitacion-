@@ -1,14 +1,42 @@
+<div class="row txt_row text-center">
+    <div class="col-md-3">
+        {{weatherList.city}}
+        <!--<img [src]=weather.icon class="pl-2 icon_weather" alt="icono ciudad">-->
+    </div>
+    <div class="col-md-3"
+        (click)="basicModal.show(); weatherS.setDat(weatherList.city); city_temp(weatherList.city); chartDatasets"
+        mdbWavesEffect:Launch demo modal>
+        {{weatherList.temp}}<span>°C</span>
+    </div>
+    <div class="col-md-3">
+        {{weatherList.speed}}<span> KM/H</span>
+    </div>
+    <div class="col-md-3">
+        {{weatherList.address}}<span> Deg</span>
+    </div>
+</div>
 
-    <td>
-      {{weather.city}}<img [src]=weather.icon class="pl-2 icon_weather" alt="icono ciudad">
-    </td>
-    <td (click)="basicModal.show(); weatherS.setDat(weather.city); chartDatasets" mdbWavesEffect:Launch demo modal>
-      {{weather.temp}}<span>°C</span>
-    </td>
-    <td>
-      {{weather.speed}}<span> KM/H</span>
-    </td>
-    <td>
-      {{weather.address}}<span> Deg</span>
-    </td>
-  
+<!--Modal weather-->
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close"
+                    (click)="basicModal.hide(); deleteList()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <span class="title_pronostico">Pronostico de las Proximas Horas</span>
+            </div>
+            <div class="modal-body">
+                <div style="display: block">
+                    <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
+                        [colors]="chartColors" [options]="chartOptions" [legend]="true"
+                        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
