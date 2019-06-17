@@ -1,15 +1,14 @@
-<div class="row st_row text-center my-0 py-0">
+<div class="row st_row text-center my-0">
     <div class="col-md-3">
         {{weatherList.city}}
         <img [src]=weatherList.icon class="pl-2 icon_weather" alt="icono ciudad">
     </div>
-    <div class="col-md-3"
-        (click)="basicModal.show(); city_temp(weatherList.city); chartDatasets"
-        mdbWavesEffect:Launch demo modal>
+    <div class="col-md-3" (click)="basicModal.show(); city_temp(weatherList.city); chartDatasets" mdbWavesEffect:Launch
+        demo modal>
         {{weatherList.temp}}<span>°C</span>
     </div>
     <div class="col-md-3">
-        {{weatherList.speed}}<span> KM/H</span>
+        {{weatherList.speed}}<span> M/S</span>
     </div>
     <div class="col-md-3">
         {{weatherList.address}}<span> Deg</span>
