@@ -10,8 +10,8 @@
     <div class="col-md-3">
         {{weatherList.speed}}<span> M/S</span>
     </div>
-    <div class="col-md-3">
-        {{weatherList.address}}<span> Deg</span>
+    <div class="col-md-3">        
+        <mdb-icon fas icon="arrow-circle-right" class="arrow" [ngStyle]="{'-webkit-transform': 'rotate('+-weatherList.address+'deg)'}"></mdb-icon>
     </div>
 </div>
 

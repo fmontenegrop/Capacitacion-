@@ -7,8 +7,7 @@ import { WeatherServise } from '../../service/weather.service'
   templateUrl: './weather-table.component.html',
   styleUrls: ['./weather-table.component.scss']
 })
-export class WeatherTableComponent implements OnInit {
-
+export class WeatherTableComponent implements OnInit {  
   @Input() weatherList: Array<any> = [];
   constructor(private weatherS: WeatherServise) {
   }
