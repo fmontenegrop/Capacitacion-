@@ -19,9 +19,7 @@ export class ModalComponent implements OnInit {
   public chartType: string = 'line';
   public chartDatasets: Array<any> = [{}
   ];
-  public lista: Array<any> = [
 
-  ];
   public chartLabels: Array<any> = [];
 
   public chartColors: Array<any> = [
@@ -42,11 +40,9 @@ export class ModalComponent implements OnInit {
   public chartClicked(e: any): void { };
   public chartHovered(e: any): void { };
   city_temp() {
-    const URL1 = 'http://api.openweathermap.org/data/2.5/forecast?q=';
-    const URL2 = ',cl,uk&APPID=a3803f4e13b97e469e7b590e8d24465f';
     const dt = this.chartLabels;
-    const temporal = this.lista;
-    let time = this.weatherS.dato_json(URL1, this.city, URL2);
+    const temporal: Array<any> = [];
+    let time = this.weatherS.dato_json(this.city, true);
     time.onload = () => {
       let h = time.response;
       for (var i = 0; i = dt.length; i++) {
@@ -55,8 +51,8 @@ export class ModalComponent implements OnInit {
       dt.push(h["list"][0].dt_txt);
       dt.push(h["list"][1].dt_txt);
       dt.push(h["list"][2].dt_txt);
-      temporal.push({ data: [this.weatherS.com_temp(h["list"][0].main.temp), this.weatherS.com_temp(h["list"][1].main.temp), this.weatherS.com_temp(h["list"][2].main.temp)], label: "Temperatura: " + this.city });
-      this.chartDatasets = this.lista;
+      temporal.push({ data: [h["list"][0].main.temp, h["list"][1].main.temp, h["list"][2].main.temp], label: "Temperatura: " + this.city });
+      this.chartDatasets = temporal;
     }
   }
 }
