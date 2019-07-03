@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherTableComponent } from './weather/weather-table/weather-table.component';
+import { ModalComponent } from './weather/modal/modal.component';
 
 
 
@@ -20,6 +21,8 @@ import { WeatherTableComponent } from './weather/weather-table/weather-table.com
     HeaderComponent,
     
     WeatherTableComponent,
+    
+    ModalComponent,
     
               
   ],

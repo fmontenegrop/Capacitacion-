@@ -22,11 +22,5 @@ export class WeatherServise {
         resul = Math.round(resul);
         return resul;
       };
-    setDat(dato: Array <any>){
-        this.dat=dato;        
-    };
-    getDat(){        
-        return this.dat;
-    };
-
+   
 }

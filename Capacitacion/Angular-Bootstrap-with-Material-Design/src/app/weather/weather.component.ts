@@ -30,8 +30,7 @@ export class WeatherComponent implements OnInit {
     this.dat('new york');
     this.dat('tokyo');
     this.dat('paris');    
-    this.dat('london');   
-    console.log(this.weatherList)  ;
+    this.dat('london');       
   };
   
   dat(city) {        
@@ -47,7 +46,7 @@ export class WeatherComponent implements OnInit {
       let icon = h["weather"][0].icon;
       icon=`http://openweathermap.org/img/w/${icon}.png`;     
       p.push({ city: city, temp: this.weatherS.com_temp(temp), speed: speed, address: address, icon: icon });
-    };     
+    };         
   };
   
   

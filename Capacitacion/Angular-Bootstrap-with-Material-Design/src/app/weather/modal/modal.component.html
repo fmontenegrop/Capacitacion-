@@ -1,0 +1,32 @@
+  <div (click)="basicModal.show(); chartDatasets; city_temp()">
+    {{temp}}<span>°C</span>
+  </div>  
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Temperatura Proximas Horas</h4>
+      </div>
+      <div class="modal-body">
+        <div style="display: block">
+          <canvas mdbChart
+              [chartType]="chartType"
+              [datasets]="chartDatasets"
+              [labels]="chartLabels"
+              [colors]="chartColors"
+              [options]="chartOptions"
+              [legend]="true"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+      <div class="modal-footer">        
+      </div>
+    </div>
+  </div>
+</div>

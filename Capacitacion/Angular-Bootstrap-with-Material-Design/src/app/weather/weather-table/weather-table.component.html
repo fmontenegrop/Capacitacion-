@@ -3,39 +3,15 @@
         {{weatherList.city}}
         <img [src]=weatherList.icon class="pl-2 icon_weather" alt="icono ciudad">
     </div>
-    <div class="col-md-3" (click)="basicModal.show(); city_temp(weatherList.city); chartDatasets" mdbWavesEffect:Launch
-        demo modal>
-        {{weatherList.temp}}<span>°C</span>
+    <div class="col-md-3" mdbWavesEffect:Launch demo modal>
+        <app-modal [city]="weatherList.city" [temp]="weatherList.temp"></app-modal>
     </div>
     <div class="col-md-3">
         {{weatherList.speed}}<span> M/S</span>
     </div>
-    <div class="col-md-3">        
-        <mdb-icon fas icon="arrow-circle-right" class="arrow" [ngStyle]="{'-webkit-transform': 'rotate('+-weatherList.address+'deg)'}"></mdb-icon>
+    <div class="col-md-3">
+        <mdb-icon fas icon="arrow-circle-right" class="arrow"
+            [ngStyle]="{'-webkit-transform': 'rotate('+-weatherList.address+'deg)'}"></mdb-icon>
     </div>
 </div>
-
-<!--Modal weather-->
-<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close"
-                    (click)="basicModal.hide(); deleteList()">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <span class="pl-5">Pronostico de las Proximas Horas</span>
-            </div>
-            <div class="modal-body">
-                <div style="display: block">
-                    <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
-                        [colors]="chartColors" [options]="chartOptions" [legend]="true"
-                        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
+<!--Modal-->
