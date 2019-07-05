@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WeatherServise } from '../../service/weather.service'
-
 
 @Component({
   selector: 'app-weather-table',
@@ -9,10 +7,8 @@ import { WeatherServise } from '../../service/weather.service'
 })
 export class WeatherTableComponent implements OnInit {  
   @Input() weatherList: Array<any> = [];
-  constructor(private weatherS: WeatherServise) {
+  constructor() {
   }
-
-
   ngOnInit() {
 
   };

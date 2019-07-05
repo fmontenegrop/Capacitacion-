@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-import {WeatherServise}from './service/weather.service'
+
 
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherTableComponent } from './weather/weather-table/weather-table.component';
 import { ModalComponent } from './weather/modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -27,12 +29,11 @@ import { ModalComponent } from './weather/modal/modal.component';
               
   ],
   imports: [
-    BrowserModule,
+    HttpClientModule,
+    BrowserModule,        
     MDBBootstrapModule.forRoot()
   ],
-  providers: [
-    WeatherServise,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

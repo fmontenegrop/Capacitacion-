@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WeatherServise } from '../../service/weather.service'
-import { Capability } from 'protractor';
+import { HttpServiceService } from 'src/app/service/http-service.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,7 +8,7 @@ import { Capability } from 'protractor';
 })
 export class ModalComponent implements OnInit {
 
-  constructor(private weatherS: WeatherServise) {
+  constructor(private http:HttpServiceService) {
   }
   @Input() temp: String;
   @Input() city;
@@ -39,20 +38,17 @@ export class ModalComponent implements OnInit {
   };
   public chartClicked(e: any): void { };
   public chartHovered(e: any): void { };
-  city_temp() {
-    const dt = this.chartLabels;
+  city_temp() {    
     const temporal: Array<any> = [];
-    let time = this.weatherS.dato_json(this.city, true);
-    time.onload = () => {
-      let h = time.response;
-      for (var i = 0; i = dt.length; i++) {
-        dt.pop();
-      }
-      dt.push(h["list"][0].dt_txt);
-      dt.push(h["list"][1].dt_txt);
-      dt.push(h["list"][2].dt_txt);
-      temporal.push({ data: [h["list"][0].main.temp, h["list"][1].main.temp, h["list"][2].main.temp], label: "Temperatura: " + this.city });
-      this.chartDatasets = temporal;
-    }
+    let time1=this.http.getNewRealeases(this.city,true);        
+    time1.subscribe((data:any)=>{
+      this.chartLabels=[];
+      this.chartLabels.push(data.list[0].dt_txt);
+      this.chartLabels.push(data.list[1].dt_txt);
+      this.chartLabels.push(data.list[2].dt_txt);      
+      temporal.push({data: [data.list[0].main.temp,data.list[1].main.temp,data.list[2].main.temp],label:`Temperatura ${this.city}`});
+      this.chartDatasets=temporal;
+    });
+
   }
 }
